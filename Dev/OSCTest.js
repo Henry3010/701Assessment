@@ -6,7 +6,15 @@ const osc = new OSC({
   });
 
 
-osc.open();
-const message = new OSC.Message('/hallo/rebecca');
-osc.send(message);
+  osc.open();
 
+  let message = new OSC.Message('/eos/get/patch/count');
+osc.send(message);
+message = new OSC.Message('eos/get/group/count')
+osc.send(message)
+
+const closing = () => {
+    osc.close()
+}
+
+setTimeout(closing, 5);
