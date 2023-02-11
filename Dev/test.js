@@ -1,9 +1,4 @@
-let array = [1,2,3]
+let onlyXValues = [-2,0,2]
+let onlyYValues = [-5,0,5]
 
-function reducio(a,b){
-    return a+b
-}
-
-let reducedArray = array.reduce(reducio)
-
-console.log(reducedArray)
+let evenPosition = [onlyXValues[i], ]

@@ -1,6 +1,6 @@
 const OSC = require('osc-js')
 
-let IP = '10.40.12.171';
+let IP = '192.168.1.177';
 
 const plugin = new OSC.DatagramPlugin({ send: { host: IP , port: 8080 }, open: { host: IP, port: 8081}})
 const osc = new OSC({ plugin: plugin })
@@ -14,9 +14,12 @@ osc.on('*', message => {
 })
 
 
-let message = new OSC.Message('/eos/get/group/1')
-osc.send(message);
+function newcmd(string){
+  let message = new OSC.Message('/eos/newcmd/'+string)
+  osc.send(message)
+}
 
+newcmd('Chan 1 @ full#')
 
 const closing = () => {
   osc.close()
